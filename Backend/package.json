@@ -1,0 +1,17 @@
+{
+  "name": "domoco-backend",
+  "private": true,
+  "scripts": {
+    "dev": "keystone dev",
+    "start": "keystone start"
+  },
+  "dependencies": {
+    "@keystone-6/auth": "^8.1.0",
+    "@keystone-6/core": "^6.5.2",
+    "dotenv": "^16.0.0",
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

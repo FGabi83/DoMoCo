@@ -1,0 +1,18 @@
+{
+  "name": "domoco-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 7777",
+    "build": "next build",
+    "start": "next start -p 7777"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.14.1",
+    "graphql": "^16.13.2",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.0"
+  }
+}
