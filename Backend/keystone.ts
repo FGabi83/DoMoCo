@@ -4,6 +4,7 @@ import { createAuth } from '@keystone-6/auth';
 import 'dotenv/config';
 
 import { User } from './schemas/User';
+import { Role } from './schemas/Role';
 // később:
 // import { Apartment } from './schemas/Apartment';
 // import { Issue } from './schemas/Issue';
@@ -28,6 +29,7 @@ export default withAuth(
 
     lists: {
       User,
+      Role,
       // Apartment,
       // Issue,
     },
