@@ -2,7 +2,7 @@ import { config } from '@keystone-6/core';
 import { statelessSessions } from '@keystone-6/core/session';
 import { createAuth } from '@keystone-6/auth';
 import 'dotenv/config';
-
+import { permissionsList } from './schemas/fields';
 import { User } from './schemas/User';
 import { Role } from './schemas/Role';
 // később:
@@ -15,16 +15,31 @@ const { withAuth } = createAuth({
   listKey: 'User',
   identityField: 'email',
   secretField: 'password',
+
   initFirstItem: {
     fields: ['name', 'email', 'password'],
   },
+
+
+  sessionData: `
+    id
+    name
+    email
+    role {
+      id
+      name
+      ${permissionsList.join('\n      ')}
+    }
+  `,
 });
 
 export default withAuth(
   config({
     db: {
       provider: 'postgresql',
-      url: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/housing',
+      url:
+        process.env.DATABASE_URL ||
+        'postgresql://postgres:postgres@localhost:5432/housing',
     },
 
     lists: {
@@ -33,6 +48,7 @@ export default withAuth(
       // Apartment,
       // Issue,
     },
+
 
     session: statelessSessions({
       secret: sessionSecret,
